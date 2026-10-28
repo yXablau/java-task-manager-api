@@ -42,9 +42,9 @@ public class Task {
         return completed;
     }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
+  //  public void setCompleted(boolean completed) {
+//        this.completed = completed;
+  //  }
 
     public String getDescription() {
         return description;
@@ -69,4 +69,15 @@ public class Task {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    public void concluir() {
+        this.completed = true;
+        this.completedAt = LocalDateTime.now();
+    }
+
+    public void reabrir() {
+        this.completed = false;
+        this.completedAt = null;
+    }
+
 }

@@ -37,4 +37,16 @@ public class TaskTest {
     void testaTaskFinalizada(){
         assertNull(teste.getCompletedAt());
     }
+    @Test
+    void testaConculuirTarefa(){
+        teste.concluir();
+        assertTrue(teste.isCompleted());
+        assertNotNull(teste.getCompletedAt());
+    }
+    @Test
+    void testaAberturadeTarefa(){
+        teste.reabrir();
+        assertFalse(teste.isCompleted());
+        assertNull(teste.getCompletedAt());
+    }
 }
