@@ -1,6 +1,4 @@
 package br.com.pedro.java_task_manager_api.model;
-
-import br.com.pedro.java_task_manager_api.model.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -45,6 +43,7 @@ public class TaskTest {
     }
     @Test
     void testaAberturadeTarefa(){
+        teste.concluir();
         teste.reabrir();
         assertFalse(teste.isCompleted());
         assertNull(teste.getCompletedAt());
