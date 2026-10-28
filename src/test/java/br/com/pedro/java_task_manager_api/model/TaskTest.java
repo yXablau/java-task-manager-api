@@ -1,4 +1,4 @@
-package model;
+package br.com.pedro.java_task_manager_api.model;
 
 import br.com.pedro.java_task_manager_api.model.Task;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,18 +14,27 @@ public class TaskTest {
         teste = new Task("Primeira Tarefa", "Descrição");
     }
     @Test
-    void TestaSeAClasseIniciaCompleta(){
+    void testaSeAClasseIniciaCompleta(){
         assertFalse(teste.isCompleted());
     }
     @Test
-    void TestaTituloeRecuperaTitulo(){
-        teste.setTitle("Primeira Tarefa");
-        assertEquals("Primeira Tarefa",teste.getTitle());
+    void testaTituloeRecuperaTitulo(){
+        teste.setTitle("Testando");
+        assertEquals("Testando",teste.getTitle());
     }
+
     @Test
-    void TestaSetTituloEmBrancoOuNull(){
+    void testaSetTituloEmBrancoOuNull(){
         assertThrows(IllegalArgumentException.class, ()->teste.setTitle(""));
         assertThrows(IllegalArgumentException.class, ()->teste.setTitle(null));
         assertThrows(IllegalArgumentException.class, ()->teste.setTitle("      "));
+    }
+    @Test
+    void testaDataCriaçãodaTask(){
+        assertNotNull(teste.getCreatedAt());
+    }
+    @Test
+    void testaTaskFinalizada(){
+        assertNull(teste.getCompletedAt());
     }
 }
