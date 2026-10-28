@@ -7,16 +7,14 @@ public class Task {
     private String title;
     private boolean completed;
     private String description;
-    private LocalDateTime createdat;
-    private LocalDateTime completedat;
+    private LocalDateTime createdAt;
+    private LocalDateTime completedAt;
 
-    public Task(Long id, String title, boolean completed, String description, LocalDateTime createdat, LocalDateTime completedat) {
-        this.id = id;
-        this.title = title;
-        this.completed = completed;
+    public Task(String title, String description) {
+        setTitle(title);
         this.description = description;
-        this.createdat = createdat;
-        this.completedat = completedat;
+        this.completed = false;
+        this.createdAt = LocalDateTime.now();
     }
     public Task(){
     }
@@ -34,6 +32,9 @@ public class Task {
     }
 
     public void setTitle(String title) {
+        if(title == null || title.isBlank()){
+            throw new IllegalArgumentException("Titulo invalido");
+        }
         this.title = title;
     }
 
@@ -53,19 +54,19 @@ public class Task {
         this.description = description;
     }
 
-    public LocalDateTime getCreatedat() {
-        return createdat;
+    public LocalDateTime getCompletedAt() {
+        return completedAt;
     }
 
-    public void setCreatedat(LocalDateTime createdat) {
-        this.createdat = createdat;
+    public void setCompletedAt(LocalDateTime completedAt) {
+        this.completedAt = completedAt;
     }
 
-    public LocalDateTime getCompletedat() {
-        return completedat;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCompletedat(LocalDateTime completedat) {
-        this.completedat = completedat;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
