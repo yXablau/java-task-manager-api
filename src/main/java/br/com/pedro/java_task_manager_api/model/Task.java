@@ -16,7 +16,7 @@ public class Task {
         this.completed = false;
         this.createdAt = LocalDateTime.now();
     }
-    public Task(){
+    protected Task(){
     }
 
     public Long getId() {

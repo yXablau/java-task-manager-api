@@ -48,4 +48,18 @@ public class TaskTest {
         assertFalse(teste.isCompleted());
         assertNull(teste.getCompletedAt());
     }
+    @Test
+    void testaCriacaoComTituloNull(){
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Task(null, "Descrição")
+        );
+    }
+    @Test
+    void testaCriacaoComTituloComEspacos(){
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Task("   ", "Descrição")
+        );
+    }
 }
